@@ -1,0 +1,52 @@
+html{
+    font-family: sans-serif;
+}
+
+h1{
+    font-size: 2.4em;
+}
+h2{
+    font-size: 2em;
+    color: lightgray;
+}
+h3{
+    font-size: 1.8em;
+}
+
+.centered{
+    text-align: center;
+}
+
+.right{
+    text-align: right;
+}
+
+
+#forax{
+    font-weight: bold;
+}
+#forax:hover{
+    color: teal;
+}
+
+#tableau{
+    border: solid black 1px;
+    width: 100%;
+    padding: 1%;
+}
+.titre{
+    font-variant: small-caps;
+}
+.gross{
+    text-align: center;
+}
+
+th{
+    text-align: center;
+}
+td:hover{
+    background-color: #12202B;
+}
+tr:nth-child(even){
+    background-color: lightgreen;
+}
