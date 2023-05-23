@@ -1,0 +1,135 @@
+<!DOCTYPE html>
+<html lang="en">
+<link rel="stylesheet" href="compte_rendu_tp2.css">
+<head>
+    <style>*{font-family: sans-serif;}</style>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+
+    <h2 class="centered" style="color: firebrick;">Feuille de style, boite et inline</h2>
+    <div class="right"><h1>Romain MAURICE</h1></div>
+    <a id="forax" href="http://forax.github.io/course/progweb/">http://forax.github.io/course/progweb/</a>
+    
+    <h2>Exercice 1</h2>
+    <ol type="I">
+        <li>Ajoutez en utilisant la balise h2 le titre de l'exercice courant puis ajoutez à la balise h2 un attribut style qui permet de mettre le titre de l'exercice en rouge brique.</li>
+        <li>Déclarez une balise style à l'intérieur des balises head du document, puis faites en sorte que tout le document utilise une police sans-serif</li>
+        <li>Faites en sorte que la balise h1 corresponde à une police de 24 points, la balise h2 à une police de 20 points et la balise h3 à une police 18 points</li>
+        <li>Faites en sorte que les balises h2 soient affichées en gris clair (lightgray), à part le titre de cet exercice (qui doit rester en rouge brique)</li>
+        <li>Faites en sorte que le titre du compte rendu de TP soit centré.</li>
+        <li>On veut que votre nom soit aligné à droite. Commencez par déclarer votre nom entre des balises div puis ajoutez une classe right permettant d'aligner le texte à droite.</li>
+        <li>Ajoutez un lien vers le cours http://forax.github.io/course/progweb/ puis faites en sorte que le lien soit en gras si la souris n'est pas sur le lien et en teal si la souris survole le lien.</li>
+    </ol>
+
+
+    <h2>Exercice 2</h2>
+    <ol type="I">
+        <li>On veut maintenant créer une feuille de style externe, c'est-à-dire une feuille de style déclarée non pas à l'intérieur de compte-rendu-tp2.html mais dans un fichier externe nommé compte-rendu-tp2.css.</li>
+        <li>Pour la suite du TP, nous ne modifierons plus la balise style du compte rendu mais le fichier compte-rendu-tp2.css</li>
+        <li>Le site https://en.wikipedia.org/wiki/List_of_2022_box_office_number-one_films_in_the_United_States contient un tableau des films au box office.</li>
+        <li>Faites en sorte que la table occupe toute la largeur du compte rendu.</li>
+        <li>Centrez les titres et changer la police de caractères des titres pour utiliser des petites majuscules (small caps).</li>
+        <li>Aérez la table avec la propriété padding pour que le texte ne soit pas collé aux bordures.</li>
+        <li>Faites en sorte que les valeurs des deux premières colonnes (rang et titre) soient alignées à gauche et que les valeurs de la dernière colonne soient centrées.</li>
+        <li>Changez la couleur de fond des lignes paires (even) pour mettre du vert clair en utilisant la pseudo-classe :nth-child.</li>
+        <li>Faites en sorte que si l'on survole une ligne avec la souris la couleur du fond corresponde à 18 sur 255 de rouge, 32 sur 255 de vert et 43 sur 255 de bleu en utilisant un codage hexadécimal.</li>
+    </ol>
+
+
+    <table id="tableau">
+        <th>rang</th>
+        <th>titre</th>
+        <th>Gross</th>
+            <tr>
+                <td class="rang">1</td><td class="titre">Doctor strange</td><td class="gross">$187.420.998</td>
+            </tr>
+            <tr>
+                <td class="rang">2</td><td class="titre">Black Panther</td><td class="gross">$181.339.761</td>
+            </tr>
+            <tr>
+                <td class="rang">3</td><td class="titre">Jurassic world Dominion</td><td class="gross">$145.075.625</td>
+            </tr>
+            <tr>
+                <td class="rang">4</td><td class="titre">Thor love and thunder</td><td class="gross">$144.165.107</td>
+            </tr>
+            <tr>
+                <td class="rang">5</td><td class="titre">The batman</td><td class="gross">$134.008.624</td>
+            </tr>
+    </table>
+
+
+    <h2>Exercice 3</h2>
+    <ol type="I">
+        <li>Récupérez les 6 images d'animaux</li>
+        récupération des images
+        <li>Faites en sorte que toutes les images à l'intérieur des boites (pas les autres) aient une largeur (width) de 220 pixels</li>
+        width 220px
+        <li>Au lieu d'afficher les images verticalement, on souhaite les afficher horizontalement.</li>
+        flex-wrap: wrap; dans le body
+        <li>Que se passe-t-il si l'on fait varier la taille de la fenêtre du navigateur horizontalement</li>
+        les images reviennes à la ligne
+        <li>Vérifiez que vous pouvez aussi mettre toutes les images à droite en changeant juste un mot dans la partie CSS du document.</li>
+        float: right;
+        <li>Faites en sorte que les titres (animal1, animal2, etc.) soient affichés en blanc sur fond noir et soient centrés horizontalement</li>
+        .titre{
+            background-color: black;
+            color: white;
+            padding-left: 90px;
+            padding-top: 15px;
+            padding-bottom: 15px;
+        <li>Espacez les unes des autres les boites contenant les images avec la propriété margin</li>      
+        img{
+            margin-top: 5px;
+            margin-left: 5px;
+            margin-right: 5px;
+        <li>Faites en sorte que les images à l'intérieur des boites aient une bordure d'un pixel de largeur de couleur #aaaaaa.</li>
+        border: solid 1px #aaaaaa;
+        <li>Changez l'opacité (propriété opacity) lorsque l'utilisateur passe sa souris au-dessus d'une image dans une boite</li>
+        img:hover{
+            opacity: 50%;
+        <li>Faites en sorte que les titres soient accolés par le bas à l'image et mordent légèrement sur l'image (de 5 pixels par exemple).</li>
+        margin-top: -5px;
+    </ol>
+
+    <h2>Exercice 4</h2>
+    <ol type="I">
+        <li>Faites en sorte que la liste ait une position fixe, en haut à gauche de la partie affichage du navigateur.</li>
+        *{
+            margin: 0;
+            padding: 0;
+        }
+        <li>Retirez le style par défaut des items de liste (avec list-style-type) pour qu'il n'y ait pas de style par défaut</li>
+        list-style-type: none;
+        <li>Affichez les items en gras et avec une police Courrier (ou sinon serif).</li>
+        li{
+            font-weight: bold;
+            font-family: 'Courier New', Courier, monospace;
+        <li>Faites en sorte que les items soient affichés horizontalement collés à gauche et non plus verticalement</li>
+        ul{
+            display: flex;
+        <li>Faites en sorte que les items aient une largeur de 120 pixels et ajoutez un espacement d'une dizaine de pixel entre les items</li>
+        li{
+        margin: 10px;
+        width: 120px;
+        <li>Changez le fond du menu pour qu'il soit de couleur bleu tirant sur le vert (teal), puis en chantant yellow submarine, changez la couleur des items pour qu'ils soient en jaune.</li>
+        ul{
+            background-color: teal;
+        li{
+            color: yellow;
+        <li>Fixez la hauteur (height) du menu à 48 pixels puis faites en sorte que le menu occupe toute la largeur (width).</li>
+        ul{
+            display: flex;
+            height: 48px;
+        <li>Faites en sorte d'avoir un item 'Help' soit affiché à droite de la barre de menu</li>
+        #help{
+            margin-left: auto
+        <li>Affichez une ligne de 2 pixels en bas du menu.</li>
+        border-bottom: solid 2px black;
+    </ol>
+
+</body>
+</html>
