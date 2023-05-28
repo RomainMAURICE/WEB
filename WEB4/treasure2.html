@@ -1,0 +1,152 @@
+<!DOCTYPE html>
+<!-- saved from url=(0078)https://monge.univ-mlv.fr/ens/IR/IR1/2022-2023/ProgWeb/src/td04/treasure2.html -->
+<html><head><meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+   
+   <style>
+     div.row {
+       clear: both;
+     }
+     div.row div {
+       padding: 5px;
+       margin: 2px;
+       width: 20px;
+       /* background-color: lightgray; */
+       background-image: url('sand.png');
+       background-size: cover;
+
+       float: left;
+     }
+   </style>
+   <script>
+     "use strict";
+     
+
+   </script>
+ </head>
+ <body style="background-color: beige;">
+  <h2>Treasure Map (2)</h2>
+  <div id="game"></div>
+
+<script>
+
+  /*let game = document.getElementById("game");
+
+  class GameState{
+    constructor(treasuresArray){
+      this.treasuresArray = treasuresArray;
+    }
+    findTreasures(x,y){
+    for(let i = 0; i < 10; i++){
+      if(treasuresArray[i].xPos == x && treasuresArray[i].yPos == y){
+        return true;
+      }
+    }
+    return false;
+    }
+  }
+
+  let treasuresArray=[];
+  let gameState = new GameState(treasuresArray);
+
+  function createTreasures(treasuresArray){
+    for(let i = 0; i<10; i++){
+      var x = Math.floor(Math.random() * 8);
+      var y = Math.floor(Math.random() * 8);
+      let treasures={xPos:x, yPos:y};
+      treasuresArray.push(treasures);
+    }
+    console.log(treasuresArray);
+    return treasuresArray;
+    console.log("test");
+  }
+
+  function createGrid() {
+    for (let i = 0; i < 8; i++) {
+      let row = document.createElement("div");
+      row.className = "row";//pour prendre le style définie pour div.row
+
+      for (let j = 0; j < 8; j++) {
+        let col = document.createElement("div");
+        col.textContent = i * 8 + j;
+        col.onclick = function() {
+          console.log("x "+i+" y "+j+game.children[i].children[j]);
+
+          if(gameState.findTreasures(i, j)){
+            this.style.backgroundColor = "green";
+          }
+          else{
+            this.style.backgroundColor = "red";
+          }
+        };
+
+        row.appendChild(col);
+      }
+
+      game.appendChild(row);
+    }
+  }
+
+  createTreasures(gameState.treasuresArray)
+
+  createGrid();*/
+
+  //--------------------------------------------------------------------------------------------
+
+  let game = document.getElementById("game");
+
+  class GameState {
+  constructor(treasures) {
+    this.treasures = treasures;
+  }
+
+  findTreasure(x, y) {
+    let key = `${x}x${y}`;
+    return this.treasures[key];
+  }
+}
+
+let treasures = {};
+let gameState = new GameState(treasures);
+
+function createTreasures() {
+  for (let i = 0; i < 10; i++) {
+    let x = Math.floor(Math.random() * 8);
+    let y = Math.floor(Math.random() * 8);
+
+    let key = `${x}x${y}`;
+    gameState.treasures[key] = true;
+  }
+}
+
+function createGrid() {
+  for (let i = 0; i < 8; i++) {
+    let row = document.createElement("div");
+    row.className = "row";
+
+    for (let j = 0; j < 8; j++) {
+      let col = document.createElement("div");
+      col.textContent = i * 8 + j;
+      col.onclick = function() {
+        console.log("x " + i + " y " + j + game.children[i].children[j]);
+
+        if (gameState.findTreasure(i, j)) {
+          this.style.backgroundImage = "url('sand-chest.png')";
+        } else {
+          this.style.backgroundImage = "url('sand-hole.png')";
+        }
+      };
+
+      row.appendChild(col);
+    }
+
+    game.appendChild(row);
+  }
+}
+
+createTreasures();
+createGrid();
+</script>
+
+ 
+
+</body></html>

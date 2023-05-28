@@ -3,6 +3,9 @@
 <meta http-equiv="content-type" content="text/html; charset=UTF-8">
    <meta charset="utf-8">
    <style>
+    body{
+      background-color: darkgray;
+    }
      div.row {
        clear: both;
      }
@@ -63,27 +66,63 @@
   let game = document.getElementById("game");
   console.log(game);
 
+  let treasuresArray=[];
+
+  function createTreasures(){
+    for(let i = 0; i<10; i++){
+      var x = Math.floor(Math.random() * 8);
+      var y = Math.floor(Math.random() * 8);
+      let treasures={xPos:x, yPos:y};
+      treasuresArray.push(treasures);
+    }
+    console.log(treasuresArray);
+    return treasuresArray;
+    console.log("test");
+  }
+
+  function findTreasure(treasures, x, y){
+    for(let i = 0; i < treasures.length; i++){
+      if(treasures[i].xPos == x && treasures[i].yPos == y){
+        return true;
+      }
+    }
+    return false;
+  }
+
 
   function parcourir(){
-    var game = document.getElementById("game");
 
-    console.log(game.children.length);       
-    game.ch
+    /*for(var i=0; i<game.children.length; i++){
+      for(var j=0; j<game.children[i].children.length; j++){
+        console.log("x "+i+" y "+j+game.children[i].children[j]);       
+      }
+    }*/
 
-    // for(var i=0; i<game.children.length; i++){
-    //   for(var j=0; j<game.children[i].children.length; j++){
-    //     console.log("x "+i+" y "+j+game.children[i].children[j]);       
-    //   }
-    // }
+    for(let i=0; i<game.children.length; i++){
+      for(let j=0; j<game.children[i].children.length; j++){
 
-    Array.from(game.children).forEach((element,indexX) => Array.from(element.children).forEach((i, indexY) => i.onclick= function(){console.log("x "+indexX + " y "+indexY+i)}/*console.log("x "+indexX+" y "+indexY+i)*/));
+        game.children[i].children[j].onclick = function(){
+          console.log("x "+i+" y "+j+game.children[i].children[j]);
 
-    
+          if(findTreasure(treasuresArray, i, j)){
+            this.style.backgroundColor = "green";
+          }
+          else{
+            this.style.backgroundColor = "red";
+          }
+        }
+
+      }
+    }
+
+    //Array.from(game.children).forEach((element,indexX) => Array.from(element.children).forEach((i, indexY) => i.onclick= function(){console.log("x "+indexX + " y "+indexY+i)}/*console.log("x "+indexX+" y "+indexY+i)*/)); 
   }
+
+
+
+
+  createTreasures();
   
-  console.log("test");       
-
-
   parcourir();
 
 </script>

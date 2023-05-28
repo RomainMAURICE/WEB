@@ -5,7 +5,7 @@
     <!-- <link rel="stylesheet" href="tp1.css"> -->
 </head>
 
-<body>
+<body style="background-color: beige;">
     
     <table>
         <tr>
@@ -53,41 +53,38 @@
         </li>
         
         <li>
-            <h3>Comment mettre en gras ou en italique ?</h3>
-            <b>
-                On utilise les balises &lt;b&gt; pour mettre du texte en gras
-            </b>
-            <br>
-            <i>
-                On utilise les balises &lt;i&gt; pour mettre du texte en italique
-            </i>
-        </li>
-        
-        <li>
-            <h3>Et comment faire pour mettre un mot à la fois en gras et en italique ? </h3>
-            <b><i>
-                On utilise les balises &lt;b&gt; et &lt;i&gt; en meme temps pour mettre un tetxte en gras et en italique
-            </i></b>
-        </li>
-        
-        <li>
-            <h3>On souhaite que le titre de la fenêtre du navigateur soit "Compte Rendu de TP1", comment faire ?</h3>
+            <h3>Modifier le code pour afficher la case et les coordonnées uniquement si l'utilisateur clique sur la case.</h3>
             <p>
-                On ajoute l'élement title à la balise head
+
             </p>
         </li>
         
         <li>
-            <h3>Ajoutez un lien vers le cours</h3>
+            <h3>Commenter le code précédent et décommenter le code avec les deux boucles et ajouter la detection des clicks de l'utilisateur, Expliquer pourquoi le code ne marche pas (si vous avez utilisé des var) ?
+            </h3>
             <p>
-                <a href="https://forax.github.io/course/progweb/html.html#/26">cours de programmation web</a>
+                ce code ne marche pas a cause de la porté des variables var qui vont en dehors des boucles
             </p>
         </li>
         
         <li>
-            <h3>Arbre</h3>
+            <h3>Commenter les versions avec un for, var et un forEach et écrivez une version avec des let à la place des var et des lambdas.</h3>
             <p>
-                <img src="mon-arbre-a-moi.jpg" alt="" width="30%" height="30%">
+
+            </p>
+        </li>
+        
+        <li>
+            <h3>Ecrire les deux fonctions createTreasures et findTreasure et afficher dans la console le résultat de findTreasure lorsqu'un utilisateur clique sur une case.</h3>
+            <p>
+                on va utiliser findTreasure dans la fonction parcourir pour changer la couleur d'une case quand on clique dessus
+            </p>
+        </li>
+        
+        <li>
+            <h3>Il ne nous reste plus qu'à changer la couleur du background en fonction de la valeur de retour de findTreasure. Pour cela, il suffit de changer la valeur background-color du style du nœud DOM correspond.</h3>
+            <p>
+                on va utiliser la ligne "this.style.backgroundColor = "green";" avec onclick pour modifier le background de l'élément sur lequel on a cliqué
             </p>
         </li>
     </ol>
@@ -96,130 +93,40 @@
         <h2>Exercice 2</h2>
         
         <li>
-            <h3>Quel est le nom de la machine à laquelle vous accédez ?
-                Quel est le nom de domaine auquel vous accédez ? </h3>
+            <h3>Modifier votre code pour générer dynamiquement l'ensemble des DIVs en dessous de game dynamiquement.</h3>
                 <p>
-                    le nom de la machine est http://monge.univ-mlv.fr/ens/
-                </p>
-                <p>
-                    le nom de domaine est monge.univ-mlv
+                    on va imbriqué deux boucles for pour les row et col, dans chaque boucle on va utiliser document.createElement("div") pour créer notre grille
+                    on va en sortant de chaque boucle, utiliser appendchild() pour ajouter chaque ligne dans une collone, et chaque collone dans notre grille
                 </p>
             </li>
             
             <li>
-                <h3>Si on exécute host monge.univ-mlv.fr</h3>
+                <h3>modifier votre programme pour créer l'objet GameState en début de programme et utiliser findTreasure là où il faut.</h3>
                 <p>
-                    La 1ere ligne correspond à l'adresse IP de la machine host
-                </p>
-                <p>
-                    La 2eme ligne correspond à la messagerie de la machine host
+                    on va définir findTreaasure dans la classe GameState puis l'utiliser dans la fonction createGrid pour transformer une case en rouge ou vert
+                    si il y a un tresor.
                 </p>
             </li>
             
             <li>
-                <h3>Adresse IP</h3>
+                <h3>Modifier votre code pour utiliser une table de hachage pour stocker les trésors plutôt qu'un tableau.</h3>
                 <p>
-                    Le site n'es plus accessible car l'adresse n'est pas publique, elle est sécurisé
+                    on va modifier les fonction findTreasure et createTreasures pour stocker dans une map la position du tresor sous forme de chaine de charactère
                 </p>
             </li>
             
             <li>
-                <h3>Adresse IP Forax</h3>
+                <h3>améliorer la qualité visuelle</h3>
                 <p>
-                    On ne peut pas récupérer l'adresse IP avec la commande host
-                </p>
-                <p>
-                    nous n'avons pas pu obtenir l'adresse IP
+                    On va modifier div.row div dans la balise style pour que le fond par défaut soit sand-png et on va utiliser background-size: cover; pour que l'image
+                    s'adapte à la dimension de la div. Dans la fonction createGrid on va utiliser this.style.backgroundImage pour modifier l'apparence de la div 
+                    en lui appliquant une image
                 </p>
             </li>
             
-            <li>
-                <h3>Traceroute</h3>
-                <p>
-                    cette commande affiche :
-                </p>
-                <p>Cette commande affiche les réseau sur lesquels sont connecté l'université</p>
-                <p>le routeur de sortie est gwetud.u-pem.fr</p>
-                <p>le réseau sur lequel est connecté l'université est noc.renater.fr</p>
-                <p>les autres réseaux traversé sont vl1488-te0-1-0-2-ren-nr-marne-rtr-091,
-                    vl630-te0-0-0-11-ren-nr-jussieu-rtr-091, xe-0-0-13-paris2-rtr-131</p>
-                </li>
                 
-                <li>
-                    <h3>site Web http://www.mai-ko.com</h3>
-                    <p>
-                        le nom de la machine hébergeant le site web est : https://mai-ko.com/
-                    </p>
-                    <p>
-                        le nom de domaine est mai-ko
-                    </p>
-                    <p>
-                        l'hébergeur de cette organisation est à Kyoto
-                    </p>
-                    <p>
-                        Ping ne marche pas
-                    </p>
-                </li>
-            </ol>
+    </ol>
             
-            <ol>
-                <h2>Exercice 3</h2>
-                
-                <li>
-                    <h3>numéro du port TCP</h3>
-                    <p>
-                        le numero du port tcp de http est 80
-                    </p>
-                </li>
-                
-                <li>
-                    <h3>Quel est le hearder de la réponse</h3>
-                    <p>HTTP/1.0 404 Not Found</p>
-                    <p>Content-Type: text/html</p>
-                    <p>Date: Fri, 02 Dec 2022 09:46:28 GMT</p>
-                    <p>Server: ECS (bsa/EB15)</p>
-                    <p>Content-Length: 345</p>
-                    <p>Connection: close</p>
-                </li>
-                
-                <li>
-                    <h3>A quoi correspondent les 3 valeurs sur la première ligne de l'entête ?</h3>
-                    <p>
-                        les 3 valeures correspondes à : au type de HTTP, le numéro d'erreur, la description d'erreur
-                    </p>
-                </li>
-                
-                <li>
-                    <h3>A quoi correspond la valeur de Content-Type</h3>
-                    <p>
-                        Content-type correspond au type du fichier
-                    </p>
-                </li>
-                
-                
-                <li>
-                    <h3>A quoi correspond la valeur de Content-Length</h3>
-                    <p>
-                        Content-Length correspond a la taille en octet du fichier
-                    </p>
-                </li>
-                
-                <li>
-                    <h3>Pourquoi dans la version 1.1 du protocole HTTP, on doit fournir le Host</h3>
-                    <p>
-                        car le serveur héberge plusieurs machines, et on doit présier laquelle choisir
-                    </p>
-                </li>
-                
-                <li>
-                    <h3>sur la machine www.forax.org, À quoi correspond la valeur de Location</h3>
-                    <p>
-                        la valeur location correspond à l'adresse de la machine
-                    </p>
-                </li>
-                
-            </ol>
-            
-        </body>
+</body>
         
-        </html>
+</html>
