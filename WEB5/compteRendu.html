@@ -1,0 +1,132 @@
+<!DOCTYPE html>
+<html>
+
+<head title="Compte rendu de tp1">
+    <!-- <link rel="stylesheet" href="tp1.css"> -->
+</head>
+
+<body style="background-color: beige;">
+    
+    <table>
+        <tr>
+            <td> </td>
+            <td>
+                <h2>Compte Rendu de TP5</h2>
+            </td>
+        </tr>
+        <tr>
+            <td>
+                <h3>Romain MAURICE</h3>
+            </td>
+            <td> </td>
+        </tr>
+        <tr>
+            <td colspan="2">
+                <h3>TP 5 de programmation web</h3>
+            </td>
+        </tr>
+    </table>
+    
+    <ol>
+        <h2>Exercice1:</h2>
+        
+        <li>
+            <h3>Faire en sorte que lorsque l'on clique sur le bouton "Refresh", les tickers (les noms des actions en abrégé) soient affichés dans la console en faisant une requête AJAX (grâce à un fetch) sur l'API REST. </h3>
+            <p>
+                on va utiliser un fetch sur http://localhost:8080/api/ticker et un return response.json() pour renvoyer les tickers sous forme JSON
+            </p>
+        </li>
+        
+        <li>
+            <h3>Ecrire le code qui affiche dans la console le div de chaque case ainsi que sa position en x et y (la première case est en (0, 0)) en utilisant deux boucles avec des index. </h3>
+            <p>
+                j'ai fait deux boucles imbriqué pour itérer sur sur les div, en utilisant .children
+            </p>
+        </li>
+        
+        <li>
+            <h3> Expliquer pourquoi on ne peut pas utiliser la méthode forEach sur les children de game. Par exemple, en écrivant game.children.forEach(...). </h3>
+            <p>
+                .children n'est pas un "array", on ne peut pas appeler forEach dessus
+                la methode array.from permet de transfomer un objet en list pour utiliser des fonction arrays dessus
+            </p>
+        </li>
+        
+        <li>
+            <h3>Modifier le code pour afficher la case et les coordonnées uniquement si l'utilisateur clique sur la case.</h3>
+            <p>
+
+            </p>
+        </li>
+        
+        <li>
+            <h3>Commenter le code précédent et décommenter le code avec les deux boucles et ajouter la detection des clicks de l'utilisateur, Expliquer pourquoi le code ne marche pas (si vous avez utilisé des var) ?
+            </h3>
+            <p>
+                ce code ne marche pas a cause de la porté des variables var qui vont en dehors des boucles
+            </p>
+        </li>
+        
+        <li>
+            <h3>Commenter les versions avec un for, var et un forEach et écrivez une version avec des let à la place des var et des lambdas.</h3>
+            <p>
+
+            </p>
+        </li>
+        
+        <li>
+            <h3>Ecrire les deux fonctions createTreasures et findTreasure et afficher dans la console le résultat de findTreasure lorsqu'un utilisateur clique sur une case.</h3>
+            <p>
+                on va utiliser findTreasure dans la fonction parcourir pour changer la couleur d'une case quand on clique dessus
+            </p>
+        </li>
+        
+        <li>
+            <h3>Il ne nous reste plus qu'à changer la couleur du background en fonction de la valeur de retour de findTreasure. Pour cela, il suffit de changer la valeur background-color du style du nœud DOM correspond.</h3>
+            <p>
+                on va utiliser la ligne "this.style.backgroundColor = "green";" avec onclick pour modifier le background de l'élément sur lequel on a cliqué
+            </p>
+        </li>
+    </ol>
+    
+    <ol>
+        <h2>Exercice 2</h2>
+        
+        <li>
+            <h3>Modifier votre code pour générer dynamiquement l'ensemble des DIVs en dessous de game dynamiquement.</h3>
+                <p>
+                    on va imbriqué deux boucles for pour les row et col, dans chaque boucle on va utiliser document.createElement("div") pour créer notre grille
+                    on va en sortant de chaque boucle, utiliser appendchild() pour ajouter chaque ligne dans une collone, et chaque collone dans notre grille
+                </p>
+            </li>
+            
+            <li>
+                <h3>modifier votre programme pour créer l'objet GameState en début de programme et utiliser findTreasure là où il faut.</h3>
+                <p>
+                    on va définir findTreaasure dans la classe GameState puis l'utiliser dans la fonction createGrid pour transformer une case en rouge ou vert
+                    si il y a un tresor.
+                </p>
+            </li>
+            
+            <li>
+                <h3>Modifier votre code pour utiliser une table de hachage pour stocker les trésors plutôt qu'un tableau.</h3>
+                <p>
+                    on va modifier les fonction findTreasure et createTreasures pour stocker dans une map la position du tresor sous forme de chaine de charactère
+                </p>
+            </li>
+            
+            <li>
+                <h3>améliorer la qualité visuelle</h3>
+                <p>
+                    On va modifier div.row div dans la balise style pour que le fond par défaut soit sand-png et on va utiliser background-size: cover; pour que l'image
+                    s'adapte à la dimension de la div. Dans la fonction createGrid on va utiliser this.style.backgroundImage pour modifier l'apparence de la div 
+                    en lui appliquant une image
+                </p>
+            </li>
+            
+                
+    </ol>
+            
+</body>
+        
+</html>
