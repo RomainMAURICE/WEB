@@ -3,15 +3,18 @@
 
 <head title="Compte rendu de tp1">
     <!-- <link rel="stylesheet" href="tp1.css"> -->
+    <meta charset="UTF-8">
+    <title>Compte rendu</title>
+
 </head>
 
-<body style="background-color: beige;">
+<body style="background-color: bisque;">
     
     <table>
         <tr>
             <td> </td>
             <td>
-                <h2>Compte Rendu de TP5</h2>
+                <p>Compte Rendu de TP5</p>
             </td>
         </tr>
         <tr>
@@ -26,105 +29,93 @@
             </td>
         </tr>
     </table>
-    
+    <h3>Exercice1:</h3>
+
     <ol>
-        <h2>Exercice1:</h2>
         
         <li>
-            <h3>Faire en sorte que lorsque l'on clique sur le bouton "Refresh", les tickers (les noms des actions en abrégé) soient affichés dans la console en faisant une requête AJAX (grâce à un fetch) sur l'API REST. </h3>
+            <p>Faire en sorte que lorsque l'on clique sur le bouton "Refresh", les tickers (les noms des actions en abrégé) soient affichés dans la console en faisant une requête AJAX (grâce à un fetch) sur l'API REST. </p>
             <p>
                 on va utiliser un fetch sur http://localhost:8080/api/ticker et un return response.json() pour renvoyer les tickers sous forme JSON
             </p>
         </li>
         
         <li>
-            <h3>Ecrire le code qui affiche dans la console le div de chaque case ainsi que sa position en x et y (la première case est en (0, 0)) en utilisant deux boucles avec des index. </h3>
+            <p>Utiliser les noms des actions obtenus par la requête AJAX pour créer une table d'une colonne avec pour chaque ligne le nom de l'action lorsque l'utilisateur clique sur "Refresh".
+                Si l'on appuie plusieurs fois sur "Refresh", cela doit recréer la même table.</p>
             <p>
-                j'ai fait deux boucles imbriqué pour itérer sur sur les div, en utilisant .children
+                on va faire une boucle pour itérer selon la taille de la liste des tickers, créer une row avec document.createElement, le changer avec .innerHTML pour lui donner
+                 le nom du ticker, puis rendre la row enfant de stockTable
             </p>
         </li>
         
         <li>
-            <h3> Expliquer pourquoi on ne peut pas utiliser la méthode forEach sur les children de game. Par exemple, en écrivant game.children.forEach(...). </h3>
+            <p> On souhaite maintenant afficher sur la console les quotations courante. Pour cela, nous allons effectuer une seconde requête AJAX (un POST) une fois que la requête AJAX pour obtenir les tickers a été effectuée.</p>
             <p>
-                .children n'est pas un "array", on ne peut pas appeler forEach dessus
-                la methode array.from permet de transfomer un objet en list pour utiliser des fonction arrays dessus
+                on va créer un deuxième fetch qui retournera un dictionnaire contenant les tickers en clées et les stock en valeurs. on va utiliser un console.log de se que retourne notre second fetch
             </p>
         </li>
         
         <li>
-            <h3>Modifier le code pour afficher la case et les coordonnées uniquement si l'utilisateur clique sur la case.</h3>
+            <p>Pourquoi lors de la conception de l'API, pour le endpoint /api/stock, une requête POST a été choisie plutôt qu'une requête GET.</p>
             <p>
+                une requête POST a été choisie plutot qu'un requete GET, pour des raisons de confidentialité des données, les données transmises avec GET sont visibles.
+            </p>
+        </li>
+        
+        <li>
+            <p>Modifier de nouveau votre code pour afficher sur la console les quotations (une par ligne) mais dans l'ordre des tickers (les noms des actions en abrégé renvoyé par la première requête AJAX). Comme cela l'ordre ne changera pas d'un refresh à l'autre.
+                Note: l'ordre doit être AAPL, GOOG, INTC, MSFT, HPQ, KO, WMT et HOG. Mais ne me le mettez pas en dur dans le code, c'est le serveur qui doit indiquer l'ordre, pas le client JS.</p>
+            <p>
+                on va récupérer avec deux fetch les stocks et les tickers, puis afficher le stock du ticker en faisant une boucle sur la liste des tickers,
+                puis afficher pour chaque itération, le tickers, et la valeur correpondant a la clé ticker dans le dictionnaire stock 
+            </p>
+        </li>
+        
+        <li>
+            <p>On souhaite maintenant afficher une table à deux colonnes, avec les noms des actions dans la première colonne et les quotations de cette action dans la seconde colonne.
+                Pour simplifier la suite du programme, découper le code en deux parties, une partie qui crée un tableau à deux colonnes et une seconde partie qui remplit les deux colonnes.</p>
+            <p>
+                on va créer une fonction createTable, qui utilise une boucle qui itère selon la taille de la liste tickers pour créer les lignes et une collone.
+                une deuxième fonction fillTable, remplie notre table avec les tickers, et la valeur correpondant a la clé ticker dans le dictionnaire stock
+            </p>
+        </li>
+        
+        <li>
+            <p>Modifier le code pour afficher une table avec 11 colonnes, la première contenant les noms des actions, la seconde le résultat des quotations ("-" tant que la valeur de la quotation n'est pas arrivée) et pour les 9 colonnes restantes avec des cellules contenant le texte "-".
+                L'idée est que lorsque l'on demandera plusieurs quotations, on les affichera dans les différentes colonnes.</p>
+            <p>
+                on va modifier la fonction createTable pour afficher 10 colones avec un trait dans chaque case de chaque collone.
+            </p>
+        </li>
+        
+        <li>
+            <p>Faite en sorte d'afficher 10 quotations en envoyant une requête de demande de quotations toutes les secondes et en stockant les quotations dans le tableau (dans les 10 colonnes).</p>
+            <p>
+                on va remplacer les cases vides de la fonctions createTable colonnes par collones en appelant fillTable plusieurs fois
+            </p>
+        </li>
 
+        <li>
+            <p>Faite en sorte que lorsqu'un utilisateur met une valeur dans le champ texte à droite du bouton "Refresh", toutes les quotations inférieurs à la valeur soient affichées en vert (les autres restent en noir).</p>
+            <p>
+                on va utiliser markText.onkeyup pour changer la couleur du texte de chaque case si ce dernier est plus petit que markText
             </p>
         </li>
-        
-        <li>
-            <h3>Commenter le code précédent et décommenter le code avec les deux boucles et ajouter la detection des clicks de l'utilisateur, Expliquer pourquoi le code ne marche pas (si vous avez utilisé des var) ?
-            </h3>
-            <p>
-                ce code ne marche pas a cause de la porté des variables var qui vont en dehors des boucles
-            </p>
-        </li>
-        
-        <li>
-            <h3>Commenter les versions avec un for, var et un forEach et écrivez une version avec des let à la place des var et des lambdas.</h3>
-            <p>
 
-            </p>
-        </li>
-        
         <li>
-            <h3>Ecrire les deux fonctions createTreasures et findTreasure et afficher dans la console le résultat de findTreasure lorsqu'un utilisateur clique sur une case.</h3>
+            <p></p>
             <p>
-                on va utiliser findTreasure dans la fonction parcourir pour changer la couleur d'une case quand on clique dessus
-            </p>
-        </li>
-        
-        <li>
-            <h3>Il ne nous reste plus qu'à changer la couleur du background en fonction de la valeur de retour de findTreasure. Pour cela, il suffit de changer la valeur background-color du style du nœud DOM correspond.</h3>
-            <p>
-                on va utiliser la ligne "this.style.backgroundColor = "green";" avec onclick pour modifier le background de l'élément sur lequel on a cliqué
-            </p>
-        </li>
-    </ol>
-    
-    <ol>
-        <h2>Exercice 2</h2>
-        
-        <li>
-            <h3>Modifier votre code pour générer dynamiquement l'ensemble des DIVs en dessous de game dynamiquement.</h3>
-                <p>
-                    on va imbriqué deux boucles for pour les row et col, dans chaque boucle on va utiliser document.createElement("div") pour créer notre grille
-                    on va en sortant de chaque boucle, utiliser appendchild() pour ajouter chaque ligne dans une collone, et chaque collone dans notre grille
-                </p>
-            </li>
-            
-            <li>
-                <h3>modifier votre programme pour créer l'objet GameState en début de programme et utiliser findTreasure là où il faut.</h3>
-                <p>
-                    on va définir findTreaasure dans la classe GameState puis l'utiliser dans la fonction createGrid pour transformer une case en rouge ou vert
-                    si il y a un tresor.
-                </p>
-            </li>
-            
-            <li>
-                <h3>Modifier votre code pour utiliser une table de hachage pour stocker les trésors plutôt qu'un tableau.</h3>
-                <p>
-                    on va modifier les fonction findTreasure et createTreasures pour stocker dans une map la position du tresor sous forme de chaine de charactère
-                </p>
-            </li>
-            
-            <li>
-                <h3>améliorer la qualité visuelle</h3>
-                <p>
-                    On va modifier div.row div dans la balise style pour que le fond par défaut soit sand-png et on va utiliser background-size: cover; pour que l'image
-                    s'adapte à la dimension de la div. Dans la fonction createGrid on va utiliser this.style.backgroundImage pour modifier l'apparence de la div 
-                    en lui appliquant une image
-                </p>
-            </li>
-            
                 
+            </p>
+        </li>
+
+        <li>
+            <p></p>
+            <p>
+                
+            </p>
+        </li>
     </ol>
             
 </body>

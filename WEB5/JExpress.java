@@ -353,7 +353,7 @@ public class JExpress {
         } catch(FileNotFoundException e) {
           var message = "Not Found " + e.getMessage();
           //System.err.println(message);
-          status(404).send("<html><h2>" + message + "</h2></html>");
+          status(404).send("<html><p>" + message + "</p></html>");
         }
       }
     };
@@ -426,7 +426,7 @@ public class JExpress {
 
   private Pipeline pipeline = asPipeline((request, response) -> {
     var message = "no match " + request.method() + " " + request.path();
-    response.status(404).send("<html><h2>" + message + "</h2></html>");
+    response.status(404).send("<html><p>" + message + "</p></html>");
   });
 
   /**
